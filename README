@@ -1,273 +1,273 @@
-===========================
-Projet LO21 : Tower Defense
+ï»¿===========================
+Projet LO21 :Â TowerÂ Defense
 ===========================
 
-Les insectes envahissent le jardin de la maison des étudiants !
+LesÂ insectesÂ envahissentÂ leÂ jardinÂ deÂ la maisonÂ desÂ Ã©tudiants !
 
 Objectifs
 =========
-	* Construction d’interface graphique avec Qt ;
-	* Utilisation de QGraphicsScene et QGraphicsView ;
-	* Utilisation des notions de l’héritage, du polymorphisme, des méthodes virtuelles 
-	  (pures), des classes abstraites, etc. ;
-	* Utilisation des classes Templates (QList, QVector, etc.).
-	* Utilisation des design patterns de construction d’objet ( Builder)
+	* ConstructionÂ dâ€™interfaceÂ graphiqueÂ avecÂ Qt ;
+	* UtilisationÂ deÂ QGraphicsSceneÂ etÂ QGraphicsView ;
+	* UtilisationÂ desÂ notionsÂ deÂ lâ€™hÃ©ritage,Â duÂ polymorphisme,Â desÂ mÃ©thodesÂ virtuellesÂ 
+	  (pures),Â desÂ classesÂ abstraites,Â etc. ;
+	* UtilisationÂ desÂ classesÂ TemplatesÂ (QList,Â QVector,Â etc.).
+	* UtilisationÂ desÂ designÂ patternsÂ deÂ constructionÂ dâ€™objetÂ (Â Builder)
 
 Introduction
 ============
-Comme chaque année, le premier barbecue du jardin de la Maison des Etudiants se prépare. 
-Ciel bleu, merguez et chipolatas, tout va pour le mieux... Mais des intrus ont décidé de 
-s'inviter pour gâcher la fête : fourmis, moustiques, cafards et guêpes entendent bien 
-prendre possession des lieux et s’accaparer les victuailles !
-Les étudiants se mobilisent et chacun y va de sa solution, plus ou moins efficace, pour 
-protéger la MDE de l'invasion : du lance pierres bricolé, au paint-ball, en passant par les 
-boules de pétanque.
+CommeÂ chaqueÂ annÃ©e,Â leÂ premierÂ barbecueÂ du jardinÂ deÂ laÂ MaisonÂ desÂ EtudiantsÂ seÂ prÃ©pare.Â 
+CielÂ bleu,Â merguezÂ etÂ chipolatas,Â toutÂ vaÂ pourÂ leÂ mieux...Â MaisÂ desÂ intrusÂ ontÂ dÃ©cidÃ©Â deÂ 
+s'inviterÂ pourÂ gÃ¢cherÂ laÂ fÃªteÂ :Â fourmis,Â moustiques,Â cafards etÂ guÃªpes entendentÂ bienÂ 
+prendreÂ possessionÂ desÂ lieux etÂ sâ€™accaparerÂ lesÂ victuailles !
+LesÂ Ã©tudiants seÂ mobilisentÂ etÂ chacunÂ yÂ vaÂ deÂ saÂ solution,Â plusÂ ouÂ moinsÂ efficace,Â pourÂ 
+protÃ©gerÂ laÂ MDEÂ deÂ l'invasionÂ :Â duÂ lanceÂ pierresÂ bricolÃ©,Â au paint-ball,Â enÂ passantÂ parÂ lesÂ 
+boulesÂ deÂ pÃ©tanque.
 
-Face à l'ampleur de l'invasion, l'administration des études accorde des crédits au BDE pour 
-chaque destruction d'insecte... de quoi recruter de nouveaux exterminateurs parmi les 
-étudiants et empêcher les insectes de gâcher la fête.
+Face Ã Â l'ampleurÂ deÂ l'invasion,Â l'administrationÂ desÂ Ã©tudesÂ accordeÂ desÂ crÃ©dits auÂ BDE pourÂ 
+chaqueÂ destructionÂ d'insecte... deÂ quoiÂ recruterÂ deÂ nouveauxÂ exterminateursÂ parmiÂ lesÂ 
+Ã©tudiants etÂ empÃªcherÂ lesÂ insectesÂ deÂ gÃ¢cherÂ laÂ fÃªte.
 
 Description
 ===========
-Le but est de réaliser un jeu de type Tower Defense en C++, en utilisant au mieux la notion 
-d’objet et les fonctionnalités fournies par Qt (programmation événementielle par signaux et 
-slots, objets graphiques, conteneurs…).
-Pour des exemples de ce type de jeu, voir le site http://www.towerdefence.net
-Dans  ce  jeu  les  ennemis  arrivent  par  vagues  successives  et  tentent  d’arriver  au  but  en 
-suivant un chemin prédéfini. Le but du jeu est de placer stratégiquement des défenses sur la 
-carte  afin  de  détruire  tous  les  ennemis  avant  qu’ils  ne  puissent  atteindre le  but.  Chaque 
-défense ayant un coût, il est nécessaire de faire preuve de stratégie.
-Quand un ennemi atteint le but, une vie est perdue. On commence avec 10 vies. La partie se 
-termine quand toutes les vies sont perdues.
-L’interface du jeu se décompose en deux zones distinctes :la  carte,  sur  laquelle  les  ennemis  progressent  et  où  l’on  peut  positionner  des 
-défenses
+LeÂ butÂ estÂ deÂ rÃ©aliserÂ unÂ jeuÂ deÂ typeÂ TowerÂ Defense enÂ C++,Â enÂ utilisantÂ auÂ mieuxÂ laÂ notionÂ 
+dâ€™objetÂ etÂ lesÂ fonctionnalitÃ©sÂ fourniesÂ parÂ QtÂ (programmationÂ Ã©vÃ©nementielleÂ parÂ signauxÂ etÂ 
+slots,Â objetsÂ graphiques,Â conteneursâ€¦).
+PourÂ desÂ exemplesÂ deÂ ceÂ typeÂ deÂ jeu,Â voirÂ leÂ siteÂ http://www.towerdefence.net
+DansÂ  ceÂ  jeuÂ  lesÂ  ennemisÂ  arriventÂ  parÂ  vaguesÂ  successivesÂ  etÂ  tententÂ  dâ€™arriverÂ  auÂ  butÂ  enÂ 
+suivantÂ unÂ cheminÂ prÃ©dÃ©fini.Â LeÂ butÂ duÂ jeuÂ estÂ deÂ placerÂ stratÃ©giquementÂ desÂ dÃ©fensesÂ surÂ laÂ 
+carteÂ  afinÂ  deÂ  dÃ©truireÂ  tousÂ  lesÂ  ennemisÂ  avantÂ  quâ€™ilsÂ  neÂ  puissentÂ  atteindre leÂ  but.Â  ChaqueÂ 
+dÃ©fenseÂ ayantÂ unÂ coÃ»t,Â ilÂ estÂ nÃ©cessaireÂ deÂ faireÂ preuveÂ deÂ stratÃ©gie.
+QuandÂ unÂ ennemiÂ atteintÂ leÂ but,Â uneÂ vieÂ estÂ perdue.Â OnÂ commenceÂ avecÂ 10Â vies.Â LaÂ partieÂ seÂ 
+termineÂ quandÂ toutesÂ lesÂ viesÂ sontÂ perdues.
+Lâ€™interfaceÂ duÂ jeuÂ seÂ dÃ©composeÂ en deuxÂ zonesÂ distinctes :laÂ  carte,Â  surÂ  laquelleÂ  lesÂ  ennemisÂ  progressentÂ  etÂ  oÃ¹Â  lâ€™onÂ  peutÂ  positionnerÂ  desÂ 
+dÃ©fenses
 
-le panneau de jeu, qui permet de choisir le type de défenseur à créer ou d’agir sur le 
-défenseur sélectionné. Il fournit également des informations sur le déroulement du 
+leÂ panneauÂ deÂ jeu,Â quiÂ permetÂ deÂ choisirÂ leÂ typeÂ deÂ dÃ©fenseurÂ Ã Â crÃ©erÂ ouÂ dâ€™agirÂ surÂ leÂ 
+dÃ©fenseurÂ sÃ©lectionnÃ©.Â IlÂ fournitÂ Ã©galementÂ desÂ informationsÂ surÂ leÂ dÃ©roulementÂ duÂ 
 jeu.
 
-La figure suivante présente une disposition type de l’interface de jeu :
-Des éléments graphiques de base (herbe, but, ennemis, défenseurs) vous sont fournis.
-La carte
+LaÂ figureÂ suivanteÂ prÃ©senteÂ uneÂ dispositionÂ typeÂ deÂ lâ€™interfaceÂ deÂ jeu :
+DesÂ Ã©lÃ©mentsÂ graphiquesÂ deÂ baseÂ (herbe,Â but,Â ennemis,Â dÃ©fenseurs)Â vousÂ sontÂ fournis.
+LaÂ carte
 
-Le jardin est composé de 16x16 dalles carrées contenant soit un chemin, soit de l'herbe, soit 
-de la boue ou enfin le but.
+LeÂ jardinÂ estÂ composÃ©Â deÂ 16x16 dallesÂ carrÃ©esÂ contenantÂ soitÂ unÂ chemin,Â soitÂ deÂ l'herbe,Â soitÂ 
+deÂ laÂ boue ouÂ enfinÂ leÂ but.
 
-Les insectes apparaissent sur la case identifiée comme départ, et suivent le chemin jusqu'au 
-but. Les étudiants défenseurs sont courageux, mais pas téméraires, ainsi, ils ne se placent 
-qu'en dehors du chemin des insectes, et évitent à tout prix les zones boueuses.
-La carte est fournie sous la forme d’un fichier texte (map.txt) comprenant 16 lignes de 16 
-entiers, avec le codage suivant :
-	* 0 = libre
-	* 1 = chemin vers le Nord
-	* 2 = chemin vers le Sud
-	* 4 = chemin vers l’Est
-	* 8 = chemin vers l’Ouest
-	* 5 = chemin vers le NE
-	* 6 = chemin vers le SE
-	* 9 = chemin vers le NO
-	* 10 = chemin vers le SO
-	* Une des valeurs précédentes + 16 = case de départ
-	* 32 = arrivée des ennemis
-	* 64 = boueLes types d’ennemis
+LesÂ insectesÂ apparaissentÂ surÂ laÂ caseÂ identifiÃ©eÂ commeÂ dÃ©part,Â etÂ suiventÂ leÂ cheminÂ jusqu'auÂ 
+but.Â LesÂ Ã©tudiantsÂ dÃ©fenseursÂ sontÂ courageux,Â maisÂ pasÂ tÃ©mÃ©raires,Â ainsi,Â ilsÂ neÂ seÂ placentÂ 
+qu'enÂ dehorsÂ duÂ cheminÂ desÂ insectes,Â etÂ Ã©vitentÂ Ã Â toutÂ prixÂ lesÂ zonesÂ boueuses.
+LaÂ carteÂ estÂ fournieÂ sousÂ laÂ formeÂ dâ€™unÂ fichierÂ texte (map.txt) comprenantÂ 16Â lignesÂ deÂ 16Â 
+entiers,Â avecÂ leÂ codageÂ suivant :
+	* 0Â =Â libre
+	* 1Â =Â cheminÂ versÂ leÂ Nord
+	* 2Â =Â cheminÂ versÂ leÂ Sud
+	* 4Â =Â cheminÂ versÂ lâ€™Est
+	* 8Â =Â cheminÂ versÂ lâ€™Ouest
+	* 5Â =Â cheminÂ versÂ leÂ NE
+	* 6Â =Â cheminÂ versÂ leÂ SE
+	* 9Â =Â cheminÂ versÂ leÂ NO
+	* 10Â =Â cheminÂ versÂ leÂ SO
+	* UneÂ desÂ valeursÂ prÃ©cÃ©dentesÂ +Â 16Â =Â caseÂ deÂ dÃ©part
+	* 32Â =Â arrivÃ©eÂ desÂ ennemis
+	* 64Â =Â boueLesÂ types dâ€™ennemis
 
 Ennemis
 =======
 	
-Les ennemis (insectes) sont caractérisés par leur taille, leur mode de déplacement (rampant 
-ou volant), leur vitesse de déplacement (en cases par seconde), leur vitalité (hp) et leur 
-résistance aux attaques (resist).
-Lorsqu’un insecte est touché, sa vitalité est modifiée comme suit :
-Quand la vitalité d’un insecte tombe à 0, il meurt. Chaque ennemi tué rapporte 1 crédit.
-En plus des caractéristiques de base, chaque type d’insecte possède des caractéristiques 
-spéciales.
+LesÂ ennemisÂ (insectes)Â sontÂ caractÃ©risÃ©sÂ parÂ leurÂ taille,Â leurÂ modeÂ deÂ dÃ©placementÂ (rampantÂ 
+ouÂ volant),Â leurÂ vitesseÂ deÂ dÃ©placement (enÂ casesÂ parÂ seconde),Â leurÂ vitalitÃ©Â (hp)Â etÂ leurÂ 
+rÃ©sistanceÂ auxÂ attaquesÂ (resist).
+Lorsquâ€™unÂ insecteÂ estÂ touchÃ©,Â saÂ vitalitÃ©Â estÂ modifiÃ©eÂ commeÂ suit :
+QuandÂ laÂ vitalitÃ©Â dâ€™unÂ insecteÂ tombeÂ Ã Â 0,Â ilÂ meurt. ChaqueÂ ennemiÂ tuÃ©Â rapporteÂ 1Â crÃ©dit.
+EnÂ plusÂ desÂ caractÃ©ristiquesÂ deÂ base,Â chaqueÂ typeÂ dâ€™insecteÂ possÃ¨deÂ desÂ caractÃ©ristiquesÂ 
+spÃ©ciales.
 
-Les fourmis
+LesÂ fourmis
 -----------
-Déplacement	| 	rampant
-Vitalité 	|	5 x taille²
-Résistance 	|	1 x taille²
-Vitesse 	|	2 + taille/2
+DÃ©placement	| 	rampant
+VitalitÃ© 	|	5Â xÂ tailleÂ²
+RÃ©sistance 	|	1Â xÂ tailleÂ²
+Vitesse 	|	2Â + taille/2
 
-Les fourmis accélèrent quand elles sont touchées. Ainsi, leur vitesse de base est multipliée 
-par 1.5 pendant les 5 secondes suivant le dernier coup reçu.
+LesÂ fourmisÂ accÃ©lÃ¨rentÂ quandÂ ellesÂ sontÂ touchÃ©es.Â Ainsi,Â leurÂ vitesseÂ deÂ baseÂ estÂ multipliÃ©eÂ 
+parÂ 1.5Â pendantÂ lesÂ 5 secondesÂ suivantÂ leÂ dernierÂ coupÂ reÃ§u.
 
-Les cafards
+LesÂ cafards
 -----------
-Déplacement	|	rampant
-Vitalité	|	10 x taille²
-Résistance	|	5 x taille²
+DÃ©placement	|	rampant
+VitalitÃ©	|	10Â xÂ tailleÂ²
+RÃ©sistance	|	5Â xÂ tailleÂ²
 Vitesse		|	2
-Les cafards de taille supérieure ou égale à 2 libèrent deux jeunes cafards de taille 
-quand ils meurent.
+LesÂ cafardsÂ deÂ taille supÃ©rieureÂ ouÂ Ã©galeÂ Ã Â 2Â libÃ¨rentÂ deuxÂ jeunesÂ cafardsÂ deÂ tailleÂ 
+quandÂ ilsÂ meurent.
 
-Les guêpes
+LesÂ guÃªpes
 ----------
-Déplacement	|	volant
-Vitalité 	|	7 x taille²
-Résistance 	|	4 x taille²
+DÃ©placement	|	volant
+VitalitÃ© 	|	7 xÂ tailleÂ²
+RÃ©sistance 	|	4 xÂ tailleÂ²
 Vitesse 	|	3
-Lorsqu’elles meurent, les guêpes s’écrasent au sol et causent un dommage de 5*taille² aux 
-insectes rampants situés à moins d’une case et demi de distance.
+Lorsquâ€™ellesÂ meurent,Â lesÂ guÃªpesÂ sâ€™Ã©crasentÂ auÂ solÂ etÂ causentÂ unÂ dommageÂ deÂ 5*tailleÂ²Â auxÂ 
+insectesÂ rampantsÂ situÃ©sÂ Ã Â moinsÂ dâ€™une case etÂ demi deÂ distance.
 
-Les moustiques
+LesÂ moustiques
 --------------
-Déplacement	|	Rampant et volant
-Vitalité	|	6 x taille²
-Résistance	|	1 x taille² en vol
-			|	15 x taille au sol
-Vitesse		|	2 + taille/2 en vol
-			|	1 + taille/2 au sol
-Les moustiques alternent 7 secondes de vol avec 3 secondes de marche au sol. Vulnérables 
-dans les airs, ils savent se cacher au sol, ce qui les rend très résistants. Quand ils sont 
-touchés en vol, les moustiques se posent (pendant 3 secondes).
+DÃ©placement	|	RampantÂ etÂ volant
+VitalitÃ©	|	6 xÂ tailleÂ²
+RÃ©sistance	|	1 xÂ tailleÂ² enÂ vol
+			|	15Â xÂ tailleÂ auÂ sol
+Vitesse		|	2Â +Â taille/2Â enÂ vol
+			|	1Â +Â taille/2Â auÂ sol
+LesÂ moustiquesÂ alternentÂ 7Â secondesÂ deÂ volÂ avecÂ 3Â secondesÂ deÂ marche auÂ sol.Â VulnÃ©rablesÂ 
+dansÂ lesÂ airs,Â ilsÂ saventÂ seÂ cacherÂ auÂ sol,Â ceÂ quiÂ lesÂ rendÂ trÃ¨sÂ rÃ©sistants. QuandÂ ilsÂ sontÂ 
+touchÃ©sÂ enÂ vol,Â lesÂ moustiquesÂ seÂ posentÂ (pendantÂ 3Â secondes).
 
-Les vagues d’ennemis
+LesÂ vaguesÂ dâ€™ennemis
 --------------------
-Les ennemis arrivent à l’entrée du chemin par vagues successives.
-Une vague est caractérisée par sa description et le type et le nombre d’ennemis la 
-composant. Un fichier d’exemple de description des vagues (waves.txt) vous est fourni. Il se 
-compose d’une ligne par vague :
-Quinze petites fourmis ; fourmi:1:15:25
-Les fourmis et une grande guêpe ; fourmi:1:15:25 ; guepe:1.7:1:25
-Sept cafards, trois moustiques et dix fourmis géantes ; cafard:1:7 :25; moustique:1.1:3 :30 ; 
+LesÂ ennemisÂ arriventÂ Ã Â lâ€™entrÃ©eÂ duÂ cheminÂ parÂ vaguesÂ successives.
+UneÂ vagueÂ estÂ caractÃ©risÃ©eÂ parÂ saÂ descriptionÂ etÂ leÂ typeÂ etÂ leÂ nombreÂ dâ€™ennemisÂ laÂ 
+composant. UnÂ fichierÂ dâ€™exempleÂ deÂ descriptionÂ desÂ vaguesÂ (waves.txt)Â vousÂ estÂ fourni.Â IlÂ seÂ 
+composeÂ dâ€™uneÂ ligneÂ parÂ vague :
+QuinzeÂ petites fourmis ;Â fourmi:1:15:25
+LesÂ fourmis etÂ uneÂ grande guÃªpe ;Â fourmi:1:15:25 ;Â guepe:1.7:1:25
+SeptÂ cafards,Â troisÂ moustiques etÂ dixÂ fourmis gÃ©antes ;Â cafard:1:7 :25;Â moustique:1.1:3 :30 ;Â 
 fourmi:3:10:40
 [..]
-Les informations sont séparées par des points virgules, on trouve d’abord la description de la 
-vague, suivie de la liste des ennemis composant la vague, sous la forme de triplets T:S:N:I où
-T est le type d’ennemi (fourmi, cafard, guepe, moustique)
-S est la taille de l’ennemi (un nombre flottant de 1 à 3)
-N est le nombre d’ennemis
-I est le nombre de pas de temps séparant l’apparition de deux ennemis (en 50
+LesÂ informationsÂ sontÂ sÃ©parÃ©esÂ parÂ desÂ pointsÂ virgules,Â onÂ trouveÂ dâ€™abord laÂ descriptionÂ deÂ laÂ 
+vague,Â suivieÂ de laÂ listeÂ desÂ ennemisÂ composantÂ laÂ vague,Â sousÂ laÂ formeÂ deÂ tripletsÂ T:S:N:I oÃ¹
+TÂ estÂ leÂ typeÂ dâ€™ennemiÂ (fourmi,Â cafard,Â guepe,Â moustique)
+SÂ estÂ laÂ tailleÂ deÂ lâ€™ennemiÂ (unÂ nombreÂ flottantÂ deÂ 1 Ã  3)
+NÂ estÂ leÂ nombreÂ dâ€™ennemis
+IÂ estÂ leÂ nombreÂ deÂ pasÂ deÂ tempsÂ sÃ©parantÂ lâ€™apparitionÂ deÂ deuxÂ ennemisÂ (enÂ 50
 e
-de 
-seconde si le timer principal tourne à 50Hz)
+deÂ 
+secondeÂ siÂ leÂ timerÂ principalÂ tourneÂ Ã Â 50Hz)
 
-Les défenses
+LesÂ dÃ©fenses
 ============
-Les défenseurs sont caractérisés par la portée de leurs armes, la cadence de tir, et la force 
-de frappe, et leur niveau. Ils ne peuvent pas forcément toucher toutes les sortes de cibles.
-Les caractéristiques de base d’un défenseur peuvent être améliorées en achetant une 
-amélioration : le défenseur peut ainsi passer du niveau 1 aux niveaux supérieurs (jusque 3).
-On peut revendre un défenseur. On récupère alors la moitié du coût total de cette défense 
-(construction et amélioration).
+LesÂ dÃ©fenseursÂ sontÂ caractÃ©risÃ©sÂ parÂ laÂ portÃ©eÂ deÂ leursÂ armes,Â laÂ cadenceÂ deÂ tir,Â etÂ laÂ forceÂ 
+deÂ frappe,Â etÂ leurÂ niveau.Â IlsÂ neÂ peuventÂ pasÂ forcÃ©mentÂ toucherÂ toutes les sortesÂ deÂ cibles.
+LesÂ caractÃ©ristiquesÂ deÂ baseÂ dâ€™unÂ dÃ©fenseurÂ peuventÂ ÃªtreÂ amÃ©liorÃ©esÂ enÂ achetantÂ uneÂ 
+amÃ©lioration :Â leÂ dÃ©fenseurÂ peutÂ ainsiÂ passerÂ duÂ niveauÂ 1Â auxÂ niveauxÂ supÃ©rieursÂ (jusqueÂ 3).
+OnÂ peut revendreÂ unÂ dÃ©fenseur.Â OnÂ rÃ©cupÃ¨reÂ alorsÂ laÂ moitiÃ©Â duÂ coÃ»tÂ totalÂ deÂ cetteÂ dÃ©fenseÂ 
+(constructionÂ etÂ amÃ©lioration).
 
-Le pistolet à eau
+LeÂ pistoletÂ Ã Â eau
 -----------------
-Accessoire quasi indispensable en ces temps de canicule, le pistolet à eau trouve également 
-son utilité dans la guerre contre les insectes. Assez peu efficace, c’est néanmoins une arme 
+AccessoireÂ quasiÂ indispensableÂ enÂ cesÂ tempsÂ deÂ canicule,Â leÂ pistoletÂ Ã Â eauÂ trouveÂ Ã©galementÂ 
+sonÂ utilitÃ©Â dansÂ laÂ guerreÂ contreÂ lesÂ insectes.Â AssezÂ peuÂ efficace,Â câ€™estÂ nÃ©anmoinsÂ uneÂ armeÂ 
 rapide.
 
-Cible Volant et rampant
-Portée 2 + niveau/2
-Cadence (4 - niveau/2) / seconde
-Frappe 5 * niveau^1.5
-Coût de base 8 Crédits
-Coût amélioration 1?2 20 Crédits
-Coût amélioration 2?3 45 CréditsProjectile Eau
-Vitesse du projectile 40 cases/seconde
+Cible Volant etÂ rampant
+PortÃ©e 2 +Â niveau/2
+Cadence (4Â - niveau/2) /Â seconde
+Frappe 5 *Â niveau^1.5
+CoÃ»tÂ deÂ base 8 CrÃ©dits
+CoÃ»tÂ amÃ©liorationÂ 1?2 20 CrÃ©dits
+CoÃ»tÂ amÃ©liorationÂ 2?3 45 CrÃ©ditsProjectile Eau
+VitesseÂ duÂ projectile 40Â cases/seconde
 
-Le lance pierres
+LeÂ lanceÂ pierres
 ----------------
-Arme efficace contre les cibles volantes quand elle est bien maniée, les ennemis ne 
-résisteront pas longtemps. Son principal inconvénient est le temps nécessaire pour trouver 
-un gros caillou à lancer entre deux tirs.
-Caractéristique Valeur
+ArmeÂ efficaceÂ contreÂ lesÂ ciblesÂ volantesÂ quandÂ elleÂ estÂ bienÂ maniÃ©e,Â lesÂ ennemisÂ neÂ 
+rÃ©sisterontÂ pasÂ longtemps. SonÂ principalÂ inconvÃ©nientÂ estÂ leÂ tempsÂ nÃ©cessaireÂ pourÂ trouverÂ 
+unÂ gros caillouÂ Ã Â lancerÂ entreÂ deuxÂ tirs.
+CaractÃ©ristique Valeur
 Cible Volant
-Portée 3 + niveau/2
-Cadence 1 / seconde
-Frappe 10 * niveau^1.5
-Coût de base 12 Crédits
-Coût amélioration 1?2 25 Crédits
-Coût amélioration 2?3 60 Crédits
+PortÃ©e 3Â +Â niveau/2
+Cadence 1Â /Â seconde
+Frappe 10Â *Â niveau^1.5
+CoÃ»tÂ deÂ base 12 CrÃ©dits
+CoÃ»tÂ amÃ©liorationÂ 1?2 25Â CrÃ©dits
+CoÃ»tÂ amÃ©liorationÂ 2?3 60Â CrÃ©dits
 Projectile Pierre
-Vitesse du projectile 25 cases/seconde
+VitesseÂ duÂ projectile 25 cases/seconde
 
-Le paint-ball
+LeÂ paint-ball
 -------------
-Joueur acharné de paint-ball, son lanceur semi-automatique de billes de peinture verte 
-biodégradable va faire un carnage en engluant toutes sortes d'insectes.
-Caractéristique Valeur
+JoueurÂ acharnÃ©Â deÂ paint-ball,Â sonÂ lanceurÂ semi-automatiqueÂ deÂ billesÂ deÂ peintureÂ verteÂ 
+biodÃ©gradableÂ vaÂ faireÂ unÂ carnageÂ enÂ engluantÂ toutesÂ sortesÂ d'insectes.
+CaractÃ©ristique Valeur
 Cible Volant+Rampant
-Portée 4 + niveau/2
-Cadence 2 / seconde
-Frappe 4 * niveau^1.5
-Coût de base 12 Crédits
-Coût amélioration 1?2 25 Crédits
-Coût amélioration 2?3 60 Crédits
-Projectile Bille de peinture
-Vitesse du projectile 30 cases/seconde
-Lorsqu’ils sont touchés par les billes de peinture, les insectes sont ralentis. À chaque bille de 
-paint-ball reçue, la vitesse de l’ennemi est réduite à la moitié de sa valeur standard pendant 
-4 secondes.
+PortÃ©e 4Â +Â niveau/2
+Cadence 2Â /Â seconde
+Frappe 4 *Â niveau^1.5
+CoÃ»tÂ deÂ base 12 CrÃ©dits
+CoÃ»tÂ amÃ©liorationÂ 1?2 25 CrÃ©dits
+CoÃ»tÂ amÃ©liorationÂ 2?3 60 CrÃ©dits
+Projectile BilleÂ deÂ peinture
+VitesseÂ duÂ projectile 30Â cases/seconde
+Lorsquâ€™ilsÂ sontÂ touchÃ©sÂ parÂ lesÂ billesÂ deÂ peinture,Â lesÂ insectesÂ sontÂ ralentis.Â Ã€Â chaqueÂ billeÂ deÂ 
+paint-ball reÃ§ue,Â laÂ vitesseÂ deÂ lâ€™ennemiÂ estÂ rÃ©duiteÂ Ã Â la moitiÃ© deÂ saÂ valeurÂ standard pendantÂ 
+4Â secondes.
 
-Le joueur de pétanque
+LeÂ joueurÂ de pÃ©tanque
 ---------------------
-Partisan du sport tranquille, le joueur de pétanque va pour la bonne cause réussir le carreau 
-et réduire les envahisseurs en purée. N'attendez pas de lui une cadence de tir soutenue, 
-mais sa précision est redoutable, et l'onde de choc produite affecte également les insectes 
-rampants proches de l'impact.
-Caractéristique Valeur
+PartisanÂ duÂ sport tranquille,Â leÂ joueurÂ deÂ pÃ©tanqueÂ vaÂ pourÂ laÂ bonneÂ causeÂ rÃ©ussir leÂ carreauÂ 
+et rÃ©duireÂ lesÂ envahisseursÂ enÂ purÃ©e.Â N'attendezÂ pasÂ deÂ luiÂ uneÂ cadenceÂ deÂ tirÂ soutenue,Â 
+maisÂ saÂ prÃ©cisionÂ estÂ redoutable,Â etÂ l'ondeÂ deÂ choc produiteÂ affecteÂ Ã©galementÂ lesÂ insectesÂ 
+rampantsÂ prochesÂ deÂ l'impact.
+CaractÃ©ristique Valeur
 Cible Rampant
-Portée 3 + niveau
-Cadence 0.5 / seconde
-Frappe 15 * niveau^1.5Coût de base 15 Crédits
-Coût amélioration 1?2 40 Crédits
-Coût amélioration 2?3 80 Crédits
-Projectile Boule de pétanque
-Vitesse du projectile 20 cases/seconde
-Les ennemis situés à au plus 1 case de la cible sont également touchés par le choc, avec une 
-frappe de 10*niveau^1.5
+PortÃ©e 3Â +Â niveau
+Cadence 0.5Â /Â seconde
+Frappe 15Â *Â niveau^1.5CoÃ»tÂ deÂ base 15Â CrÃ©dits
+CoÃ»tÂ amÃ©liorationÂ 1?2 40Â CrÃ©dits
+CoÃ»tÂ amÃ©liorationÂ 2?3 80Â CrÃ©dits
+Projectile BouleÂ deÂ pÃ©tanque
+VitesseÂ duÂ projectile 20 cases/seconde
+LesÂ ennemisÂ situÃ©sÂ Ã Â auÂ plusÂ 1Â caseÂ deÂ laÂ cibleÂ sontÂ Ã©galementÂ touchÃ©s parÂ leÂ choc,Â avecÂ uneÂ 
+frappeÂ deÂ 10*niveau^1.5
 
-Le musicien (bonus)
+LeÂ musicien (bonus)
 -------------------
-Non violent et craintif des insectes, le musicien préfère rester hors de la bataille, mais 
-encourage ses amis en poussant la chansonnette.
-Caractéristique	|	Valeur
+NonÂ violentÂ etÂ craintifÂ desÂ insectes,Â leÂ musicienÂ prÃ©fÃ¨reÂ resterÂ horsÂ deÂ laÂ bataille,Â maisÂ 
+encourageÂ sesÂ amisÂ enÂ poussantÂ laÂ chansonnette.
+CaractÃ©ristique	|	Valeur
 Cible 			|	Aucun
-Portée 			|	1.5 case
+PortÃ©e 			|	1.5Â case
 Cadence			|	NA
 Frappe			|	0
-Coût de base 	|	15 Crédits
-Coût amélioration 	1?2 40 Crédits
-Coût amélioration 	2?3 80 Crédits
-Suivant le niveau du musicien, les défenseurs à sa portée bénéficient d’un bonus d’attaque 
-de 20% (niveau 1), 40% (niveau 2) ou 60% (niveau 3).
+CoÃ»tÂ deÂ base 	|	15Â CrÃ©dits
+CoÃ»tÂ amÃ©liorationÂ 	1?2 40Â CrÃ©dits
+CoÃ»tÂ amÃ©liorationÂ 	2?3 80Â CrÃ©dits
+SuivantÂ leÂ niveauÂ duÂ musicien,Â lesÂ dÃ©fenseursÂ Ã Â saÂ portÃ©eÂ bÃ©nÃ©ficientÂ dâ€™unÂ bonusÂ dâ€™attaqueÂ 
+deÂ 20%Â (niveauÂ 1),Â 40%Â (niveauÂ 2)Â ouÂ 60%Â (niveauÂ 3).
 
-Fonctionnalités principales
+FonctionnalitÃ©sÂ principales
 ===========================
-L’application devra réaliser les fonctions de base suivantes :
-	* Chargement de la carte ;
-	* Chargement des éléments graphiques ;
-	* Lecture du fichier de vagues d’ennemis ;
-	* Nouvelle partie, Pause ;
-	* Achat et placement des défenses sur la carte ;
-	* Animation des ennemis ;
-	* Amélioration, revente de la défense sélectionnée ;
-	* Passage à la prochaine vague d’ennemis ;
-Par ailleurs, toute amélioration sera la bienvenue (ex : Sauvegarde de la partie 
-courante dans un fichier, sons, types supplémentaires d’ennemis et de défenses, éditeur de 
-carte…).
+Lâ€™applicationÂ devraÂ rÃ©aliserÂ lesÂ fonctions deÂ baseÂ suivantes :
+	* ChargementÂ deÂ laÂ carte ;
+	* ChargementÂ desÂ Ã©lÃ©mentsÂ graphiques ;
+	* LectureÂ duÂ fichierÂ deÂ vaguesÂ dâ€™ennemis ;
+	* NouvelleÂ partie,Â Pause ;
+	* AchatÂ etÂ placementÂ desÂ dÃ©fensesÂ surÂ laÂ carte ;
+	* AnimationÂ desÂ ennemis ;
+	* AmÃ©lioration,Â revente deÂ laÂ dÃ©fenseÂ sÃ©lectionnÃ©eÂ ;
+	* PassageÂ Ã Â laÂ prochaineÂ vagueÂ dâ€™ennemis ;
+ParÂ ailleurs,Â touteÂ amÃ©lioration sera la bienvenue (ex :Â SauvegardeÂ deÂ laÂ partieÂ 
+courante dansÂ unÂ fichier,Â sons,Â typesÂ supplÃ©mentairesÂ dâ€™ennemisÂ etÂ deÂ dÃ©fenses,Â Ã©diteurÂ deÂ 
+carteâ€¦).
 
-Modélisation
+ModÃ©lisation
 ============
-Vous modéliserez les Défenses, les Projectiles et les Ennemis par des classes, en exploitant 
-au mieux mécanismes de l’héritage, du polymorphisme et des fonctions virtuelles.
-La scène de jeu sera représentée par un objet dérivant de la classe Qt QGraphicsScene. Les 
-objets composant une QGraphicsScene dérivent de la classe QGraphicsItem. Enfin, cette 
-scène pourra être affichée dans un widget QGraphicsView.(Voir à ce sujet la partie Examples/Graphics View Examples de la documentation Qt)
-L’intérêt d’utiliser ces classes est qu’elles implémentent un mécanisme de gestion des 
-événements au niveau des objets composant la scène (clic de souris, survol). Un mécanisme 
-de mise à jour pour des animations simples est également prévu via le slot advance() de la 
-QGraphicsScene, qui appelle la fonction membre advance de tous les objets composant la 
-scène (attention, advance est appelée 2 fois lors d’une mise à jour, consultez la 
+VousÂ modÃ©liserezÂ lesÂ DÃ©fenses,Â lesÂ ProjectilesÂ etÂ lesÂ EnnemisÂ parÂ desÂ classes,Â enÂ exploitantÂ 
+auÂ mieuxÂ mÃ©canismesÂ deÂ lâ€™hÃ©ritage,Â duÂ polymorphismeÂ etÂ desÂ fonctionsÂ virtuelles.
+LaÂ scÃ¨neÂ deÂ jeuÂ seraÂ reprÃ©sentÃ©eÂ parÂ unÂ objetÂ dÃ©rivantÂ deÂ laÂ classeÂ QtÂ QGraphicsScene.Â LesÂ 
+objetsÂ composantÂ uneÂ QGraphicsScene dÃ©riventÂ deÂ laÂ classeÂ QGraphicsItem. Enfin,Â cetteÂ 
+scÃ¨neÂ pourraÂ ÃªtreÂ affichÃ©eÂ dansÂ unÂ widgetÂ QGraphicsView.(VoirÂ Ã Â ceÂ sujetÂ laÂ partieÂ Examples/GraphicsÂ ViewÂ Examples deÂ laÂ documentationÂ Qt)
+Lâ€™intÃ©rÃªtÂ dâ€™utiliserÂ cesÂ classesÂ estÂ quâ€™ellesÂ implÃ©mententÂ unÂ mÃ©canismeÂ deÂ gestionÂ desÂ 
+Ã©vÃ©nementsÂ auÂ niveauÂ desÂ objetsÂ composantÂ laÂ scÃ¨neÂ (clicÂ deÂ souris,Â survol).Â UnÂ mÃ©canismeÂ 
+deÂ miseÂ Ã Â jourÂ pourÂ desÂ animationsÂ simplesÂ estÂ Ã©galementÂ prÃ©vuÂ viaÂ leÂ slotÂ advance() deÂ laÂ 
+QGraphicsScene,Â quiÂ appelleÂ laÂ fonctionÂ membreÂ advance deÂ tousÂ lesÂ objetsÂ composantÂ laÂ 
+scÃ¨ne (attention,Â advance estÂ appelÃ©eÂ 2Â foisÂ lorsÂ dâ€™uneÂ miseÂ Ã Â jour,Â consultezÂ laÂ 
 documentation).
-Pour l’animation graphique des ennemis, consultez Examples/Graphics View 
-Examples/Ported Asteroids
-La gestion du temps sera confiée à un QTimer cadencé à 50 Hz (période de 20 ms).
-Vous appliquerez le design pattern Fabrique (Factory) à la création des ennemis.
+PourÂ lâ€™animationÂ graphiqueÂ desÂ ennemis,Â consultezÂ Examples/GraphicsÂ ViewÂ 
+Examples/PortedÂ Asteroids
+LaÂ gestionÂ duÂ tempsÂ seraÂ confiÃ©eÂ Ã Â unÂ QTimer cadencÃ©Â Ã Â 50Â HzÂ (pÃ©riodeÂ deÂ 20Â ms).
+VousÂ appliquerez leÂ designÂ patternÂ Fabrique (Factory)Â Ã Â laÂ crÃ©ationÂ desÂ ennemis.
 Rendu
-Votre code sera commenté en suivant la convention de Doxygen. Vous pourrez ainsi générer 
-automatiquement un document présentant les différentes classes et leurs fonctionnalités.
-Vous complèterez cette documentation automatique par quelques pages présentant le 
-sujet, la modélisation du problème et sa réalisation.
+VotreÂ codeÂ seraÂ commentÃ©Â enÂ suivantÂ laÂ conventionÂ deÂ Doxygen. VousÂ pourrezÂ ainsiÂ gÃ©nÃ©rerÂ 
+automatiquementÂ unÂ documentÂ prÃ©sentantÂ lesÂ diffÃ©rentesÂ classesÂ etÂ leursÂ fonctionnalitÃ©s.
+VousÂ complÃ¨terezÂ cetteÂ documentationÂ automatiqueÂ parÂ quelquesÂ pagesÂ prÃ©sentant leÂ 
+sujet,Â laÂ modÃ©lisationÂ duÂ problÃ¨meÂ etÂ saÂ rÃ©alisation.
